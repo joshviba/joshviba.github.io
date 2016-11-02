@@ -3,38 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sergio Villegas A00935797, Wilson Hu A00XXXXXXX</title>
-    <link type="text/css" href="css/style.css" rel="stylesheet" />
-    <script>
-        function circle() {
-            //DRAW STROKED CIRCLE
-            contextShapes.beginPath();
-            contextShapes.arc(300, 50, 50, 0, Math.PI * 1, false);
-            contextShapes.closePath();
-            contextShapes.lineWidth = 3;
-            contextShapes.stroke();
-        }
-
-        function house() {
-            var shapes = document.getElementById("myShapes");
-            var contextShapes = shapes.getContext("2d");
-            //DRAW CIRCLE
-            // x, y, radius, start angle, end angle, isClockwise
-            var x = shapes.canvas.width / 2;
-            var y = (shapes.canvas.height / 4) * 3;
-            var radius = shapes.canvas.width / 3;
-            var startAngle = 0;
-            var endAngle = Math.PI;
-            contextShapes.beginPath();
-            contextShapes.arc(x, y, radius, startAngle, endAngle, false);
-            contextShapes.closePath();
-            contextShapes.fillStyle = "cyan";
-            contextShapes.fill();
-        }
-    </script>
+    <title>Drawing Shapes</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
-<body onLoad="circle()">
+<body onLoad="house()">
     <h1>Red Rectangle, Green Circle, and Stroked Arc</h1>
     <canvas id="myShapes" width="500" height="500"></canvas>
 </body>
