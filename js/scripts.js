@@ -40,7 +40,6 @@ function drawLogsBody() {
     var logs = houseDimensionY / 20;
     var logsInterval = 20;
     for (var i = 0; i < logs; i++) {
-        ctx.moveTo(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY - (i * logsInterval) - logsInterval / 2);
         ctx.beginPath();
         ctx.arc(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY - (i * logsInterval) - logsInterval / 2, logsInterval / 2, 1.5 * Math.PI, 0.5 * Math.PI);
         ctx.fillStyle = "chocolate";
@@ -55,7 +54,6 @@ function drawLogsBody() {
         ctx.stroke();
     }
     for (var i = 0; i < logs; i++) {
-        ctx.moveTo(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2);
         ctx.beginPath();
         ctx.arc(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2, logsInterval / 2, 0, 2 * Math.PI);
         ctx.closePath();
@@ -64,9 +62,28 @@ function drawLogsBody() {
         ctx.stroke();
     }
     for (var i = 0; i < logs; i++) {
-        ctx.moveTo(leftFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2);
         ctx.beginPath();
         ctx.arc(leftFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2, logsInterval / 2, 0, 2 * Math.PI);
+        ctx.fillStyle = "chocolate";
+        ctx.fill();
+        ctx.stroke();
+    }
+}
+
+function drawLogsRoof() {
+    var logs = 9;
+    var logsInterval = 20;
+    for (var i = 0; i < logs; i++) {
+        ctx.beginPath();
+        ctx.arc(leftFrontRoofCornerX + (i * (logsInterval / 1.2)), bottomFrontRoofY - (i * (logsInterval / 2)), logsInterval / 2, 0, 2 * Math.PI);
+        ctx.fillStyle = "chocolate";
+        ctx.fill();
+        ctx.stroke();
+    }
+    logs = 8;
+    for (var i = 0; i < logs; i++) {
+        ctx.beginPath();
+        ctx.arc(rightFrontRoofCornerX - (i * (logsInterval / 1.19)), bottomFrontRoofY - (i * (logsInterval / 1.95)), logsInterval / 2, 0, 2 * Math.PI);
         ctx.fillStyle = "chocolate";
         ctx.fill();
         ctx.stroke();
@@ -130,6 +147,7 @@ function houseRoof() {
     //ctx.closePath();
     ctx.fill();
     ctx.stroke();
+    drawLogsRoof();
 }
 
 function drawDecorBody() {
