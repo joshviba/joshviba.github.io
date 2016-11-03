@@ -74,11 +74,18 @@ function drawLogsRoof() {
     var logs = 9;
     var logsInterval = 20;
     ctx.fillStyle = "saddleBrown";
+    for (var i = 0; i < logs; i++) {
+        ctx.beginPath();
+        ctx.arc(rightBackRoofCornerX - (i * (logsInterval / 1.19)), bottomBackRoofY - (i * (logsInterval / 1.95)), logsInterval / 2, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+    }
     ctx.beginPath();
     ctx.moveTo(rightFrontRoofCornerX, bottomFrontRoofY + (logsInterval / 2));
-    ctx.lineTo(pointFrontRoofX - (logsInterval / 2), pointFrontRoofY - (logsInterval / 2) + 3);
-    ctx.lineTo(pointBackRoofX, pointBackRoofY - (logsInterval / 2));
-    ctx.lineTo(rightBackRoofCornerX + (logsInterval / 2), bottomBackRoofY);
+    ctx.lineTo(pointFrontRoofX - (logsInterval / 2), pointFrontRoofY - (logsInterval / 2) + 2);
+    ctx.lineTo(pointBackRoofX - 5, pointBackRoofY - (logsInterval / 2));
+    ctx.lineTo(rightBackRoofCornerX + (logsInterval / 2) - 2, bottomBackRoofY + (logsInterval / 9));
+    ctx.lineTo(rightBackRoofCornerX + (logsInterval / 7), bottomBackRoofY + (logsInterval / 2));
     ctx.closePath();
     ctx.fill();
     for (var i = 0; i < logs; i++) {
@@ -89,9 +96,14 @@ function drawLogsRoof() {
     }
     for (var i = 0; i < logs; i++) {
         ctx.beginPath();
-        ctx.moveTo(rightFrontRoofCornerX - (i * (logsInterval / 1.2)), bottomFrontRoofY - (i * logsInterval / 2) - (logsInterval / 2));
-        ctx.lineTo(rightBackRoofCornerX - (i * (logsInterval / 1.2)), bottomBackRoofY - (i * logsInterval / 2) - (logsInterval / 2));
-        ctx.fill();
+        if (i == 0) {
+            ctx.moveTo(rightFrontRoofCornerX + (logsInterval / 7), bottomFrontRoofY + (logsInterval / 2));
+            ctx.lineTo(rightBackRoofCornerX + (logsInterval / 7), bottomBackRoofY + (logsInterval / 2));
+            //ctx.lineTo(rightBackRoofCornerX, bottomBackRoofY);
+            ctx.fill();
+        }
+        ctx.moveTo(rightFrontRoofCornerX - (i * (logsInterval / 1.15)), bottomFrontRoofY - (i * logsInterval / 2) - (logsInterval / 2));
+        ctx.lineTo(rightBackRoofCornerX - (i * (logsInterval / 1.16)), bottomBackRoofY - (i * logsInterval / 1.97) - (logsInterval / 2));
         ctx.stroke();
     }
     logs = 8;
@@ -214,10 +226,56 @@ function drawDecorBody() {
     ctx.stroke();
 }
 
+function drawChimeny() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    ctx.fillStyle = "orangeRed";
+    ctx.lineWidth = 2;
+    var chimenySizeX = 50;
+    var chimenySizeY = 120;
+    var chimLeftBackX = pointBackRoofX - 20;
+    var chimTopBackY = pointBackRoofY - chimenySizeY / 2 + 2;
+    var chimRightBackX = chimLeftBackX + chimenySizeX;
+    var chimBottomBackY = chimTopBackY + chimenySizeY;
+    var chimLeftFrontX = pointBackRoofX - chimenySizeX / 2 - 25;
+    var chimTopFrontY = pointBackRoofY - chimenySizeY / 2.5 - 1;
+    var chimRightFrontX = chimLeftFrontX + chimenySizeX;
+    var chimBottomFrontY = chimTopFrontY + chimenySizeY;
+    ctx.fillRect(chimLeftBackX, chimTopBackY, chimenySizeX, chimenySizeY);
+    ctx.strokeRect(chimLeftBackX, chimTopBackY, chimenySizeX, chimenySizeY);
+    //Fills the space between with colour
+    ctx.beginPath();
+    ctx.moveTo(chimLeftBackX, chimTopBackY);
+    ctx.lineTo(chimLeftFrontX, chimTopFrontY);
+    ctx.lineTo(chimRightFrontX, chimBottomFrontY);
+    ctx.lineTo(chimRightBackX, chimBottomBackY);
+    ctx.lineTo(chimRightBackX, chimTopBackY);
+    ctx.moveTo(chimRightFrontX, chimTopFrontY);
+    ctx.lineTo(chimRightBackX, chimTopBackY);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    //Draws the fornt face of chimeny
+    ctx.fillRect(chimLeftFrontX, chimTopFrontY, chimenySizeX, chimenySizeY);
+    ctx.strokeRect(chimLeftFrontX, chimTopFrontY, chimenySizeX, chimenySizeY);
+    //Draws the lines connecting the corners to give appearance of depth
+    /*ctx.beginPath();
+    ctx.moveTo(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY);
+    ctx.lineTo(leftBackFaceHouseBodyX, topBackFaceHouseBodyY);
+    ctx.moveTo(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY);
+    ctx.lineTo(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY);
+    ctx.moveTo(rightBackFaceHouseBodyX, topBackFaceHouseBodyY);
+    ctx.lineTo(rightFrontFaceHouseBodyX, topFrontFaceHouseBodyY);
+    ctx.closePath();
+    ctx.stroke();*/
+}
+
 function house() {
     "use strict";
     drawBackground();
     houseBody();
     houseRoof();
     drawDecorBody();
+    drawChimeny();
 }
