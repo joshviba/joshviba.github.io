@@ -33,17 +33,42 @@ function drawBackground() {
     ctx.fillRect(0, (bottomBackFaceHouseBodyY - houseDimensionY / 4), shapes.width, shapes.height);
 }
 
-function drawLogs() {
+function drawLogsBody() {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
     var logs = houseDimensionY / 20;
     var logsInterval = 20;
     for (var i = 0; i < logs; i++) {
+        ctx.moveTo(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY - (i * logsInterval) - logsInterval / 2);
+        ctx.beginPath();
+        ctx.arc(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY - (i * logsInterval) - logsInterval / 2, logsInterval / 2, 1.5 * Math.PI, 0.5 * Math.PI);
+        ctx.fillStyle = "chocolate";
+        ctx.fill();
+        ctx.stroke();
+    }
+    for (var i = 0; i < logs; i++) {
         ctx.beginPath();
         ctx.moveTo(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval));
         ctx.lineTo(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY - (i * logsInterval));
         ctx.closePath();
+        ctx.stroke();
+    }
+    for (var i = 0; i < logs; i++) {
+        ctx.moveTo(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2);
+        ctx.beginPath();
+        ctx.arc(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2, logsInterval / 2, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fillStyle = "chocolate";
+        ctx.fill();
+        ctx.stroke();
+    }
+    for (var i = 0; i < logs; i++) {
+        ctx.moveTo(leftFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2);
+        ctx.beginPath();
+        ctx.arc(leftFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY - (i * logsInterval) - logsInterval / 2, logsInterval / 2, 0, 2 * Math.PI);
+        ctx.fillStyle = "chocolate";
+        ctx.fill();
         ctx.stroke();
     }
 }
@@ -56,7 +81,6 @@ function houseBody() {
     ctx.lineWidth = 2;
     //Fills and outlines the "Back Face" of the house body
     ctx.fillRect(leftBackFaceHouseBodyX, topBackFaceHouseBodyY, houseDimensionX, houseDimensionY);
-    ctx.strokeRect(leftBackFaceHouseBodyX, topBackFaceHouseBodyY, houseDimensionX, houseDimensionY);
     //Fills the space between the "faces" with colour
     ctx.beginPath();
     ctx.moveTo(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY);
@@ -75,11 +99,11 @@ function houseBody() {
     ctx.lineTo(rightFrontFaceHouseBodyX, topFrontFaceHouseBodyY);
     ctx.closePath();
     ctx.stroke();
-    drawLogs();
     //Fills and outlines the "Front Face" of the house body
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "peru";
     ctx.fillRect(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY, houseDimensionX, houseDimensionY);
     ctx.strokeRect(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY, houseDimensionX, houseDimensionY);
+    drawLogsBody();
 }
 
 function houseRoof() {
