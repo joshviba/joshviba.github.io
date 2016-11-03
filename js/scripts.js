@@ -73,10 +73,24 @@ function drawLogsBody() {
 function drawLogsRoof() {
     var logs = 9;
     var logsInterval = 20;
+    ctx.fillStyle = "saddleBrown";
+    ctx.beginPath();
+    ctx.moveTo(rightFrontRoofCornerX, bottomFrontRoofY + (logsInterval / 2));
+    ctx.lineTo(pointFrontRoofX - (logsInterval / 2), pointFrontRoofY - (logsInterval / 2) + 3);
+    ctx.lineTo(pointBackRoofX, pointBackRoofY - (logsInterval / 2));
+    ctx.lineTo(rightBackRoofCornerX + (logsInterval / 2), bottomBackRoofY);
+    ctx.closePath();
+    ctx.fill();
     for (var i = 0; i < logs; i++) {
         ctx.beginPath();
         ctx.arc(leftFrontRoofCornerX + (i * (logsInterval / 1.2)), bottomFrontRoofY - (i * (logsInterval / 2)), logsInterval / 2, 0, 2 * Math.PI);
-        ctx.fillStyle = "chocolate";
+        ctx.fill();
+        ctx.stroke();
+    }
+    for (var i = 0; i < logs; i++) {
+        ctx.beginPath();
+        ctx.moveTo(rightFrontRoofCornerX - (i * (logsInterval / 1.2)), bottomFrontRoofY - (i * logsInterval / 2) - (logsInterval / 2));
+        ctx.lineTo(rightBackRoofCornerX - (i * (logsInterval / 1.2)), bottomBackRoofY - (i * logsInterval / 2) - (logsInterval / 2));
         ctx.fill();
         ctx.stroke();
     }
@@ -84,7 +98,6 @@ function drawLogsRoof() {
     for (var i = 0; i < logs; i++) {
         ctx.beginPath();
         ctx.arc(rightFrontRoofCornerX - (i * (logsInterval / 1.19)), bottomFrontRoofY - (i * (logsInterval / 1.95)), logsInterval / 2, 0, 2 * Math.PI);
-        ctx.fillStyle = "chocolate";
         ctx.fill();
         ctx.stroke();
     }
