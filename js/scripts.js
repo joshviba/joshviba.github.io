@@ -234,12 +234,12 @@ function drawChimeny() {
     ctx.lineWidth = 2;
     var chimenySizeX = 50;
     var chimenySizeY = 120;
-    var chimLeftBackX = pointBackRoofX - 20;
-    var chimTopBackY = pointBackRoofY - chimenySizeY / 2 + 2;
+    var chimLeftBackX = pointFrontRoofX + 25;
+    var chimTopBackY = pointFrontRoofY - chimenySizeY / 2 - 20;
     var chimRightBackX = chimLeftBackX + chimenySizeX;
     var chimBottomBackY = chimTopBackY + chimenySizeY;
-    var chimLeftFrontX = pointBackRoofX - chimenySizeX / 2 - 25;
-    var chimTopFrontY = pointBackRoofY - chimenySizeY / 2.5 - 1;
+    var chimLeftFrontX = pointFrontRoofX - chimenySizeX / 2 + 15;
+    var chimTopFrontY = pointFrontRoofY - chimenySizeY / 2.5 - 25;
     var chimRightFrontX = chimLeftFrontX + chimenySizeX;
     var chimBottomFrontY = chimTopFrontY + chimenySizeY;
     ctx.fillRect(chimLeftBackX, chimTopBackY, chimenySizeX, chimenySizeY);
@@ -256,7 +256,17 @@ function drawChimeny() {
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+    //Fills the top of the chimeny
+    ctx.beginPath();
+    ctx.moveTo(chimLeftBackX, chimTopBackY);
+    ctx.lineTo(chimLeftFrontX, chimTopFrontY);
+    ctx.lineTo(chimRightFrontX, chimTopFrontY);
+    ctx.lineTo(chimRightBackX, chimTopBackY);
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
     //Draws the fornt face of chimeny
+    ctx.fillStyle = "orangeRed";
     ctx.fillRect(chimLeftFrontX, chimTopFrontY, chimenySizeX, chimenySizeY);
     ctx.strokeRect(chimLeftFrontX, chimTopFrontY, chimenySizeX, chimenySizeY);
     //Draws the lines connecting the corners to give appearance of depth
@@ -275,7 +285,7 @@ function house() {
     "use strict";
     drawBackground();
     houseBody();
+    drawChimeny();
     houseRoof();
     drawDecorBody();
-    drawChimeny();
 }
