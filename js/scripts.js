@@ -22,21 +22,127 @@ var rightBackRoofCornerX = rightBackFaceHouseBodyX + (houseDimensionX / 4);
 var bottomBackRoofY = topBackFaceHouseBodyY;
 var pointBackRoofX = leftBackFaceHouseBodyX + (houseDimensionX / 2);
 var pointBackRoofY = topBackFaceHouseBodyY - (houseDimensionY / 1.5);
+//Variables for the Chimney
+var chimenySizeX = 50;
+var chimenySizeY = 120;
+var chimLeftBackX = pointFrontRoofX + 25;
+var chimTopBackY = pointFrontRoofY - chimenySizeY / 2 - 20;
+var chimRightBackX = chimLeftBackX + chimenySizeX;
+var chimBottomBackY = chimTopBackY + chimenySizeY;
+var chimLeftFrontX = pointFrontRoofX - chimenySizeX / 2 + 15;
+var chimTopFrontY = pointFrontRoofY - chimenySizeY / 2.5 - 25;
+var chimRightFrontX = chimLeftFrontX + chimenySizeX;
+var chimBottomFrontY = chimTopFrontY + chimenySizeY;
+
+function drawMountains() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    ctx.lineWidth = "1";
+    ctx.fillStyle = "lightSeaGreen";
+    var x = -75;
+    var mountIncrement = 500;
+    var numMountains = 2;
+    var controlInterval = mountIncrement / 3;
+    var floorY = bottomBackFaceHouseBodyY - houseDimensionY / 4;
+    var mountHeight = 300;
+    var controlPointX = x + controlInterval;
+    ctx.beginPath();
+    for (var j = 0; j < numMountains; j++) {
+        ctx.moveTo(x, floorY);
+        ctx.bezierCurveTo(controlPointX, floorY - mountHeight, controlPointX + controlInterval, floorY - mountHeight, x + mountIncrement, floorY);
+        x += mountIncrement - controlInterval;
+        controlPointX += mountIncrement - controlInterval;
+        ctx.fill();
+        ctx.stroke();
+    }
+}
+var xCloud = -100;
+var xCloud2 = xcloud * 1.5;
+var xCloud3 = xcloud * 2;
+var xCloud4 = xcloud * .5;
+
+function drawClouds() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    ctx.fillStyle = "lightSkyblue";
+    ctx.lineWidth = "3";
+    var yCloud = 75;
+    var radius = 50;
+    var startAngle = 0;
+    var endAngle = 2 * Math.PI;
+    ctx.save();
+    ctx.scale(1, .5);
+    ctx.clearRect(0, 0, shapes.width, radius * 5);
+    ctx.fillRect(0, 0, shapes.width, radius * 5);
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(xCloud, yCloud, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(xCloud2, yCloud * 2, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(xCloud3, yCloud * .75, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(xCloud4, yCloud * 1.5, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    if (xCloud < shapes.width + radius) {
+        xCloud += 2;
+    }
+    else {
+        xCloud = -100;
+    }
+    if (xCloud2 < shapes.width + radius) {
+        xCloud2 += 3;
+    }
+    else {
+        xCloud2 = -100;
+    }
+    if (xCloud3 < shapes.width + radius) {
+        xCloud3 += 4;
+    }
+    else {
+        xCloud3 = -100;
+    }
+    if (xCloud4 < shapes.width + radius) {
+        xCloud4 += 1;
+    }
+    else {
+        xCloud4 = -100;
+    }
+}
 
 function drawBackground() {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    ctx.lineWidth = "1";
     ctx.fillStyle = "lightskyBlue";
     ctx.fillRect(0, 0, shapes.width, shapes.height);
     ctx.fillStyle = "green";
     ctx.fillRect(0, (bottomBackFaceHouseBodyY - houseDimensionY / 4), shapes.width, shapes.height);
+    drawMountains();
+    ctx.strokeRect(-1, (bottomBackFaceHouseBodyY - houseDimensionY / 4), shapes.width + 2, shapes.height + 1);
+    var inter = setInterval(drawClouds, 20);
 }
 
 function drawLogsBody() {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    ctx.lineWidth = "2";
     var logs = houseDimensionY / 20;
     var logsInterval = 20;
     for (var i = 0; i < logs; i++) {
@@ -74,6 +180,7 @@ function drawLogsRoof() {
     var logs = 9;
     var logsInterval = 20;
     ctx.fillStyle = "saddleBrown";
+    ctx.lineWidth = "2";
     for (var i = 0; i < logs; i++) {
         ctx.beginPath();
         ctx.arc(rightBackRoofCornerX - (i * (logsInterval / 1.19)), bottomBackRoofY - (i * (logsInterval / 1.95)), logsInterval / 2, 0, 2 * Math.PI);
@@ -115,6 +222,21 @@ function drawLogsRoof() {
     }
 }
 
+function drawPlanksHouse() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    var plankHeight = 20;
+    ctx.lineWidth = "1";
+    var plankNum = houseDimensionY / plankHeight;
+    for (var i = 0; i < plankNum; i++) {
+        ctx.beginPath();
+        ctx.moveTo(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY + plankHeight * i);
+        ctx.lineTo(rightFrontFaceHouseBodyX, topFrontFaceHouseBodyY + plankHeight * i);
+        ctx.stroke();
+    }
+}
+
 function houseBody() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -145,7 +267,31 @@ function houseBody() {
     ctx.fillStyle = "peru";
     ctx.fillRect(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY, houseDimensionX, houseDimensionY);
     ctx.strokeRect(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY, houseDimensionX, houseDimensionY);
+    drawPlanksHouse();
     drawLogsBody();
+}
+
+function drawPlanksRoof() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    var plankWidth = 20;
+    ctx.lineWidth = "1";
+    var plankNum = (rightFrontRoofCornerX - leftFrontRoofCornerX) / plankWidth;
+    var lineHeight = 0;
+    for (var i = 0; i < plankNum; i++) {
+        ctx.beginPath();
+        ctx.moveTo(leftFrontRoofCornerX + plankWidth * i, bottomFrontRoofY);
+        ctx.lineTo(leftFrontRoofCornerX + plankWidth * i, bottomFrontRoofY - lineHeight);
+        ctx.closePath();
+        ctx.stroke();
+        if (i < (plankNum / 2)) {
+            lineHeight += 13;
+        }
+        else {
+            lineHeight -= 13;
+        }
+    }
 }
 
 function houseRoof() {
@@ -172,6 +318,7 @@ function houseRoof() {
     //ctx.closePath();
     ctx.fill();
     ctx.stroke();
+    drawPlanksRoof();
     drawLogsRoof();
 }
 
@@ -226,22 +373,109 @@ function drawDecorBody() {
     ctx.stroke();
 }
 
+function drawDecorRoof() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    var winWidth = (rightFrontRoofCornerX - leftFrontRoofCornerX) / 1.5;
+    var winHeight = (bottomFrontRoofY - pointFrontRoofY) / 1.5;
+    var winLeftX = leftFrontRoofCornerX + winWidth / 2;
+    var winRightX = rightFrontRoofCornerX - winWidth / 2;
+    var winBottomY = bottomFrontRoofY - winHeight / 2 + 5;
+    var winPointX = pointFrontRoofX;
+    var winPointY = pointFrontRoofY + winHeight / 2 + 5;
+    ctx.beginPath();
+    ctx.moveTo(winLeftX, winBottomY);
+    ctx.lineTo(winPointX, winPointY);
+    ctx.lineTo(winRightX, winBottomY);
+    ctx.closePath();
+    ctx.lineWidth = "1";
+    ctx.fillStyle = "gray";
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath()
+    ctx.moveTo(winPointX, winPointY);
+    ctx.lineTo(winPointX, winBottomY);
+    ctx.moveTo(winPointX - winWidth / 6.8, winBottomY - winHeight / 5);
+    ctx.lineTo(winPointX + winWidth / 6.8, winBottomY - winHeight / 5);
+    ctx.closePath()
+    ctx.stroke();
+}
+
+function drawBricks() {
+    "use strict"
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    ctx.lineWidth = "1";
+    var brickHeight = 8;
+    var brickWidth = chimenySizeX / 3;
+    var bricksTall = chimenySizeY / brickHeight;
+    ctx.fillStyle = "fireBrick";
+    ctx.fillRect(chimLeftFrontX + 2 * brickWidth, chimTopFrontY, brickWidth, chimenySizeY);
+    for (var i = 0; i < bricksTall; i++) {
+        var brickHeight = 8;
+        ctx.fillStyle = "fireBrick";
+        if (i % 2 == 0) {
+            ctx.fillRect(chimLeftFrontX, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+            ctx.fillRect(chimLeftFrontX + 2 * brickWidth, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+            ctx.strokeRect(chimLeftFrontX, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+            ctx.strokeRect(chimLeftFrontX + 2 * brickWidth, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+        }
+        else {
+            ctx.fillRect(chimLeftFrontX + brickWidth / 2, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+            ctx.fillStyle = "orangeRed";
+            ctx.fillRect(chimLeftFrontX + brickWidth * 1.5, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+            ctx.strokeRect(chimLeftFrontX + brickWidth / 2, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+            ctx.strokeRect(chimLeftFrontX + brickWidth * 1.5, chimTopFrontY + (i * brickHeight), brickWidth, brickHeight);
+        }
+    }
+    var brickWidthSlant = (chimRightBackX - chimRightFrontX) / 3;
+    var brickHeightSlant = (chimTopFrontY - chimTopBackY) / 3;
+    for (var j = 0; j < bricksTall; j++) {
+        if (j % 2 == 0) {
+            ctx.beginPath();
+            ctx.moveTo(chimRightFrontX, chimTopFrontY + brickHeight * j);
+            ctx.lineTo(chimRightFrontX, chimTopFrontY + brickHeight + brickHeight * j);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant / 2, chimTopFrontY + brickHeight + brickHeight * j - brickHeightSlant / 2);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant / 2, chimTopFrontY + brickHeight + brickHeight * j - brickHeightSlant / 2 - brickHeight);
+            //
+            ctx.moveTo(chimRightFrontX + brickWidthSlant * 1.5, chimTopFrontY + brickHeight * j - brickHeightSlant * 1.5);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant * 1.5, chimTopFrontY + brickHeight * j - brickHeightSlant * 1.5 + brickHeight);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant * 2.5, chimTopFrontY + brickHeight * j - brickHeightSlant * 2.5 + brickHeight);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant * 2.5, chimTopFrontY + brickHeight * j - brickHeightSlant * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.closePath();
+        }
+        else {
+            ctx.beginPath();
+            ctx.moveTo(chimRightFrontX, chimTopFrontY + brickHeight * j);
+            ctx.lineTo(chimRightFrontX, chimTopFrontY + brickHeight + brickHeight * j);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant, chimTopFrontY + brickHeight + brickHeight * j - brickHeightSlant);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant, chimTopFrontY + brickHeight + brickHeight * j - brickHeightSlant - brickHeight);
+            //
+            ctx.moveTo(chimRightFrontX + brickWidthSlant * 2, chimTopFrontY + brickHeight * j - brickHeightSlant * 1.5);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant * 2, chimTopFrontY + brickHeight * j - brickHeightSlant * 2 + brickHeight);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant * 3, chimTopFrontY + brickHeight * j - brickHeightSlant * 3 + brickHeight);
+            ctx.lineTo(chimRightFrontX + brickWidthSlant * 3, chimTopFrontY + brickHeight * j - brickHeightSlant * 3);
+            ctx.fill();
+            ctx.stroke();
+            ctx.closePath();
+        }
+        ctx.beginPath();
+        ctx.moveTo(chimRightFrontX, chimTopFrontY + brickHeight * j);
+        ctx.lineTo(chimRightBackX, chimTopBackY + brickHeight * j);
+        ctx.stroke();
+        ctx.closePath();
+    }
+}
+
 function drawChimeny() {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
     ctx.fillStyle = "orangeRed";
     ctx.lineWidth = 2;
-    var chimenySizeX = 50;
-    var chimenySizeY = 120;
-    var chimLeftBackX = pointFrontRoofX + 25;
-    var chimTopBackY = pointFrontRoofY - chimenySizeY / 2 - 20;
-    var chimRightBackX = chimLeftBackX + chimenySizeX;
-    var chimBottomBackY = chimTopBackY + chimenySizeY;
-    var chimLeftFrontX = pointFrontRoofX - chimenySizeX / 2 + 15;
-    var chimTopFrontY = pointFrontRoofY - chimenySizeY / 2.5 - 25;
-    var chimRightFrontX = chimLeftFrontX + chimenySizeX;
-    var chimBottomFrontY = chimTopFrontY + chimenySizeY;
     ctx.fillRect(chimLeftBackX, chimTopBackY, chimenySizeX, chimenySizeY);
     ctx.strokeRect(chimLeftBackX, chimTopBackY, chimenySizeX, chimenySizeY);
     //Fills the space between with colour
@@ -269,16 +503,8 @@ function drawChimeny() {
     ctx.fillStyle = "orangeRed";
     ctx.fillRect(chimLeftFrontX, chimTopFrontY, chimenySizeX, chimenySizeY);
     ctx.strokeRect(chimLeftFrontX, chimTopFrontY, chimenySizeX, chimenySizeY);
-    //Draws the lines connecting the corners to give appearance of depth
-    /*ctx.beginPath();
-    ctx.moveTo(leftFrontFaceHouseBodyX, topFrontFaceHouseBodyY);
-    ctx.lineTo(leftBackFaceHouseBodyX, topBackFaceHouseBodyY);
-    ctx.moveTo(rightBackFaceHouseBodyX, bottomBackFaceHouseBodyY);
-    ctx.lineTo(rightFrontFaceHouseBodyX, bottomFrontFaceHouseBodyY);
-    ctx.moveTo(rightBackFaceHouseBodyX, topBackFaceHouseBodyY);
-    ctx.lineTo(rightFrontFaceHouseBodyX, topFrontFaceHouseBodyY);
-    ctx.closePath();
-    ctx.stroke();*/
+    //Draws the bricks
+    drawBricks();
 }
 
 function house() {
@@ -288,4 +514,5 @@ function house() {
     drawChimeny();
     houseRoof();
     drawDecorBody();
+    drawDecorRoof();
 }
