@@ -62,68 +62,6 @@ var xCloud2 = xcloud * 1.5;
 var xCloud3 = xcloud * 2;
 var xCloud4 = xcloud * .5;
 
-function drawClouds() {
-    "use strict";
-    shapes = document.getElementById("myShapes");
-    ctx = shapes.getContext("2d");
-    ctx.fillStyle = "lightSkyblue";
-    ctx.lineWidth = "3";
-    var yCloud = 75;
-    var radius = 50;
-    var startAngle = 0;
-    var endAngle = 2 * Math.PI;
-    ctx.save();
-    ctx.scale(1, .5);
-    ctx.clearRect(0, 0, shapes.width, radius * 5);
-    ctx.fillRect(0, 0, shapes.width, radius * 5);
-    ctx.fillStyle = "white";
-    ctx.beginPath();
-    ctx.arc(xCloud, yCloud, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(xCloud2, yCloud * 2, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(xCloud3, yCloud * .75, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(xCloud4, yCloud * 1.5, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-    if (xCloud < shapes.width + radius) {
-        xCloud += 2;
-    }
-    else {
-        xCloud = -100;
-    }
-    if (xCloud2 < shapes.width + radius) {
-        xCloud2 += 3;
-    }
-    else {
-        xCloud2 = -100;
-    }
-    if (xCloud3 < shapes.width + radius) {
-        xCloud3 += 4;
-    }
-    else {
-        xCloud3 = -100;
-    }
-    if (xCloud4 < shapes.width + radius) {
-        xCloud4 += 1;
-    }
-    else {
-        xCloud4 = -100;
-    }
-}
-
 function drawBackground() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -558,7 +496,7 @@ function drawSmoke3() {
     var chimneyY = chimTopBackY;
 }
 
-function house() {
+function drawHouse() {
     "use strict";
     drawBackground();
     houseBody();
@@ -566,6 +504,74 @@ function house() {
     houseRoof();
     drawDecorBody();
     drawDecorRoof();
+}
+
+function drawClouds() {
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    ctx.clearRect(0, 0, shapes.width, shapes.height);
+    drawHouse();
+    ctx.fillStyle = "lightSkyblue";
+    ctx.lineWidth = "3";
+    var yCloud = 75;
+    var radius = 50;
+    var startAngle = 0;
+    var endAngle = 2 * Math.PI;
+    ctx.save();
+    ctx.scale(1, .5);
+    ctx.clearRect(0, 0, shapes.width, radius * 6.4);
+    ctx.fillRect(0, 0, shapes.width, radius * 6.5);
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(xCloud, yCloud, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(xCloud2, yCloud * 2, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(xCloud3, yCloud * .75, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(xCloud4, yCloud * 1.5, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    if (xCloud < shapes.width + radius) {
+        xCloud += 2;
+    }
+    else {
+        xCloud = -100;
+    }
+    if (xCloud2 < shapes.width + radius) {
+        xCloud2 += 3;
+    }
+    else {
+        xCloud2 = -100;
+    }
+    if (xCloud3 < shapes.width + radius) {
+        xCloud3 += 4;
+    }
+    else {
+        xCloud3 = -100;
+    }
+    if (xCloud4 < shapes.width + radius) {
+        xCloud4 += 1;
+    }
+    else {
+        xCloud4 = -100;
+    }
+    //var set = setInterval(drawSmoke1, 50);
+    drawSmoke1();
+}
+
+function house() {
     var inter = setInterval(drawClouds, 50);
-    var set = setInterval(drawSmoke1, 50);
 }
