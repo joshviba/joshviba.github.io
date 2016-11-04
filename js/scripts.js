@@ -135,7 +135,6 @@ function drawBackground() {
     ctx.fillRect(0, (bottomBackFaceHouseBodyY - houseDimensionY / 4), shapes.width, shapes.height);
     drawMountains();
     ctx.strokeRect(-1, (bottomBackFaceHouseBodyY - houseDimensionY / 4), shapes.width + 2, shapes.height + 1);
-    var inter = setInterval(drawClouds, 20);
 }
 
 function drawLogsBody() {
@@ -506,50 +505,58 @@ function drawChimeny() {
     //Draws the bricks
     drawBricks();
 }
+var chimneyX = chimLeftBackX;
+var chimneyY = chimTopBackY;
 
-    function drawSmoke1() {
-      shapes = document.getElementById("myShapes");
-      ctx = shapes.getContext("2d");
-
-      var chimneyX = chimLeftBackX;
-      var chimneyY = chimTopBackY;
-
-      //Draws Cloud
-      ctx.beginPath();
-      ctx.moveTo(chimneyX, chimneyY);
-      ctx.quadraticCurveTo(chimneyX + 10, chimneyY + 5, chimneyX + 20, chimneyY - 10);
-      ctx.quadraticCurveTo(chimneyX + 30, chimneyY - 15, chimneyX + 25, chimneyY - 20);
-      ctx.quadraticCurveTo(chimneyX + 20, chimneyY - 20, chimneyX + 20, chimneyY - 22);
-      ctx.quadraticCurveTo(chimneyX + 7, chimneyY - 40, chimneyX, chimneyY - 20);
-      ctx.quadraticCurveTo(chimneyX-12, chimneyY-25, chimneyX-10, chimneyY-15);
-      ctx.quadraticCurveTo(chimneyX-15, chimneyY+5, chimneyX, chimneyY);
-      ctx.fillStyle="rgba(120,120,120,0.3)";
-      ctx.fill();
-      //Draws lighter area
-      ctx.beginPath();
-      ctx.moveTo(chimneyX - 6, chimneyY - 6);
-      ctx.quadraticCurveTo(chimneyX -4, chimneyY - 4, chimneyX, chimneyY - 8);
-      ctx.quadraticCurveTo(chimneyX + 6, chimneyY - 8, chimneyX + 8, chimneyY - 11);
-      ctx.quadraticCurveTo(chimneyX + 2, chimneyY - 12, chimneyX -5, chimneyY-10);
-      ctx.lineTo(chimneyX-6, chimneyY-6);
-      ctx.fillStyle="rgba(255,255,255,0.7)";
-      ctx.fill();
+function drawSmoke1() {
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    //Draws Cloud
+    //ctx.clearRect(chimneyX, chimneyY);
+    ctx.beginPath();
+    ctx.moveTo(chimneyX, chimneyY);
+    ctx.quadraticCurveTo(chimneyX + 10, chimneyY + 5, chimneyX + 20, chimneyY - 10);
+    ctx.quadraticCurveTo(chimneyX + 30, chimneyY - 15, chimneyX + 25, chimneyY - 20);
+    ctx.quadraticCurveTo(chimneyX + 20, chimneyY - 20, chimneyX + 20, chimneyY - 22);
+    ctx.quadraticCurveTo(chimneyX + 7, chimneyY - 40, chimneyX, chimneyY - 20);
+    ctx.quadraticCurveTo(chimneyX - 12, chimneyY - 25, chimneyX - 10, chimneyY - 15);
+    ctx.quadraticCurveTo(chimneyX - 15, chimneyY + 5, chimneyX, chimneyY);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(120,120,120,0.3)";
+    ctx.fill();
+    //Draws lighter area
+    ctx.beginPath();
+    ctx.moveTo(chimneyX - 6, chimneyY - 6);
+    ctx.quadraticCurveTo(chimneyX - 4, chimneyY - 4, chimneyX, chimneyY - 8);
+    ctx.quadraticCurveTo(chimneyX + 6, chimneyY - 8, chimneyX + 8, chimneyY - 11);
+    ctx.quadraticCurveTo(chimneyX + 2, chimneyY - 12, chimneyX - 5, chimneyY - 10);
+    ctx.lineTo(chimneyX - 6, chimneyY - 6);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.fill();
+    if (chimneyX < shapes.width || chimneyY > 0) {
+        chimneyX += 5;
+        chimneyY -= 3;
     }
-    function drawSmoke2() {
-      shapes = document.getElementById("myShapes");
-      ctx = shapes.getContext("2d");
-
-      var chimneyX = chimLeftBackX;
-      var chimneyY = chimTopBackY;
-
+    else {
+        chimneyX = chimLeftBackX;
+        chimneyY = chimTopBackY;
     }
-    function drawSmoke3() {
-      shapes = document.getElementById("myShapes");
-      ctx = shapes.getContext("2d");
+}
 
-      var chimneyX = chimLeftBackX;
-      var chimneyY = chimTopBackY;
-    }
+function drawSmoke2() {
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    var chimneyX = chimLeftBackX;
+    var chimneyY = chimTopBackY;
+}
+
+function drawSmoke3() {
+    shapes = document.getElementById("myShapes");
+    ctx = shapes.getContext("2d");
+    var chimneyX = chimLeftBackX;
+    var chimneyY = chimTopBackY;
+}
 
 function house() {
     "use strict";
@@ -559,4 +566,6 @@ function house() {
     houseRoof();
     drawDecorBody();
     drawDecorRoof();
+    var inter = setInterval(drawClouds, 50);
+    var set = setInterval(drawSmoke1, 50);
 }
