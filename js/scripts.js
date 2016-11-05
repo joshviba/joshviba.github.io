@@ -509,33 +509,6 @@ function drawSmoke2() {
     ctx.fill();
 }
 
-<!--function drawSmoke3() {
-    shapes = document.getElementById("myShapes");
-    ctx = shapes.getContext("2d");
-    var chimneyX = chimLeftBackX;
-    var chimneyY = chimTopBackY;
-
-    //Draws Smoke puff
-    ctx.beginPath();
-    ctx.moveTo(chimneyX, chimneyY);
-    ctx.quadraticCurveTo();
-    ctx.quadraticCurveTo();
-    ctx.quadraticCurveTo();
-    ctx.quadraticCurveTo();
-    ctx.closePath();
-    ctx.fillStyle = "rgba(120,120,120,0.8)";
-    //Draws lighter area
-    ctx.beginPath();
-    ctx.moveTo(chimneyX - 6, chimneyY - 6);
-    ctx.quadraticCurveTo(chimneyX - 4, chimneyY - 4, chimneyX, chimneyY - 8);
-    ctx.quadraticCurveTo(chimneyX + 6, chimneyY - 8, chimneyX + 8, chimneyY - 11);
-    ctx.quadraticCurveTo(chimneyX + 2, chimneyY - 12, chimneyX - 5, chimneyY - 10);
-    ctx.lineTo(chimneyX - 6, chimneyY - 6);
-    ctx.closePath();
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
-    ctx.fill();
-}
-
 function drawHouse() {
     "use strict";
     drawBackground();
