@@ -443,10 +443,10 @@ function drawChimeny() {
     //Draws the bricks
     drawBricks();
 }
-var chimneyX = chimLeftBackX;
-var chimneyY = chimTopBackY;
+var chimneyX = chimLeftFrontX;
+var chimneyY = chimTopFrontY;
 
-function drawSmoke1() {
+function drawSmoke1(xOffSet, yOffset) {
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
     //Draws Cloud
@@ -472,9 +472,9 @@ function drawSmoke1() {
     ctx.closePath();
     ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
-    if (chimneyX < shapes.width || chimneyY > 0) {
-        chimneyX += 5;
-        chimneyY -= 3;
+    if (chimneyX < shapes.width && chimneyY > 0) {
+        chimneyX += 3;
+        chimneyY -= 2;
     }
     else {
         chimneyX = chimLeftBackX;
@@ -569,7 +569,7 @@ function drawClouds() {
         xCloud4 = -100;
     }
     //var set = setInterval(drawSmoke1, 50);
-    drawSmoke1();
+    drawSmoke1(25, 25);
 }
 
 function house() {
