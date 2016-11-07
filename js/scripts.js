@@ -657,5 +657,5 @@ function house(speed) {
     shapes = document.getElementById("myShapes");
     smokeLimitX1 = chimLeftBackX + (shapes.width - chimLeftBackX) / 3;
     smokeLimitX2 = chimLeftBackX + 2 * (shapes.width - chimLeftBackX) / 3;
-    inter = setInterval(drawClouds, speed);
+    inter = setInterval(drawClouds, 150 - speed);
 }

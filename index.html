@@ -3,21 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Drawing Shapes</title>
+    <title>Villegas, Sergio - Hu, Wilson</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
-<body onLoad="house(150)">
-    <h1>Sergio and Wilson's Log Cabin in the Hills</h1>
-    <canvas id="myShapes" width="500" height="500"></canvas>
-    <div>
-        <p>
-            <label for="interval-speed">Animation Speed</label>
-        </p>
-        <p>
-            <input type="range" id="interval-speed" min="1" value="150" max="150" step="1" oninput="house(value)"> </p>
-    </div>
+<body onLoad="house(1)">
+    <main class="col-xs-12 container-fluid ">
+        <section class="text-center">
+            <h1>Sergio and Wilson's Log Cabin in the Hills</h1>
+            <div class="col-xs-10 col-xs-offset-1">
+                <canvas class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="myShapes" width="500" height="500"></canvas>
+            </div>
+        </section>
+        <section class="col-xs-8 col-xs-offset-2 text-center">
+            <p>
+                <label for="interval-speed">Animation Speed</label>
+            </p>
+            <p>
+                <input type="range" id="interval-speed" min="0" value="0" max="149" step="1" oninput="house(value)"> </p>
+        </section>
+    </main>
 </body>
 
 </html>

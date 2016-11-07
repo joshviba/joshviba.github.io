@@ -5,3 +5,7 @@ body {
 canvas {
     border: none;
 }
+
+canvas {
+    padding-bottom: 10px;
+}
