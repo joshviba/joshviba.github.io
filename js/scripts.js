@@ -1,5 +1,6 @@
 var shapes;
 var ctx;
+var inter;
 //Variables for the house body
 var houseDimensionX = 180;
 var houseDimensionY = 120;
@@ -33,6 +34,8 @@ var chimLeftFrontX = pointFrontRoofX - chimenySizeX / 2 + 15;
 var chimTopFrontY = pointFrontRoofY - chimenySizeY / 2.5 - 25;
 var chimRightFrontX = chimLeftFrontX + chimenySizeX;
 var chimBottomFrontY = chimTopFrontY + chimenySizeY;
+var smokeLimitX1;
+var smokeLimitX2;
 
 function drawMountains() {
     "use strict";
@@ -446,11 +449,13 @@ function drawChimeny() {
 var chimneyX = chimLeftFrontX;
 var chimneyY = chimTopFrontY;
 
-function drawSmoke1(xOffSet, yOffset) {
+function drawSmoke1(scaleX, scaleY) {
+    "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    ctx.save();
+    ctx.scale(scaleX, scaleY);
     //Draws Smoke puff
-    //ctx.clearRect(chimneyX, chimneyY);
     ctx.beginPath();
     ctx.moveTo(chimneyX, chimneyY);
     ctx.quadraticCurveTo(chimneyX + 10, chimneyY + 5, chimneyX + 20, chimneyY - 10);
@@ -481,20 +486,24 @@ function drawSmoke1(xOffSet, yOffset) {
         chimneyX = chimLeftBackX;
         chimneyY = chimTopBackY;
     }
+    ctx.restore();
 }
 
-function drawSmoke2(xOffSet, yOffset) {
+function drawSmoke2(scaleX, scaleY) {
+    "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    ctx.save();
+    ctx.scale(scaleX, scaleY);
     //Draws smoke puff
     ctx.beginPath();
     ctx.moveTo(chimneyX, chimneyY);
     ctx.quadraticCurveTo(chimneyX + 10, chimneyY + 8, chimneyX + 20, chimneyY);
     ctx.quadraticCurveTo(chimneyX + 50, chimneyY, chimneyX + 30, chimneyY - 30);
-    ctx.quadraticCurveTo(chimneyX + 15, chimneyY - 50, chimneyX  + 5, chimneyY - 28);
+    ctx.quadraticCurveTo(chimneyX + 15, chimneyY - 50, chimneyX + 5, chimneyY - 28);
     ctx.quadraticCurveTo(chimneyX - 20, chimneyY - 10, chimneyX, chimneyY);
     ctx.closePath();
-    ctx.fillStyle="rgba(120,120,120,0.8)";
+    ctx.fillStyle = "rgba(120,120,120,0.8)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();
@@ -503,22 +512,26 @@ function drawSmoke2(xOffSet, yOffset) {
     ctx.quadraticCurveTo(chimneyX + 30, chimneyY - 26, chimneyX + 28, chimneyY - 30);
     ctx.quadraticCurveTo(chimneyX + 10, chimneyY - 40, chimneyX + 3, chimneyY - 26);
     ctx.closePath();
-    ctx.fillStyle="rgba(255,255,255,0.7)";
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
     //If else that..
     if (chimneyX < shapes.width && chimneyY > 0) {
-        chimneyX += 3;
+        chimneyX += 4;
         chimneyY -= 2;
     }
     else {
         chimneyX = chimLeftBackX;
         chimneyY = chimTopBackY;
     }
+    ctx.restore();
 }
 
-  function drawSmoke3(xOffSet, yOffset) {
+function drawSmoke3(scaleX, scaleY) {
+    "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    ctx.save();
+    ctx.scale(scaleX, scaleY);
     //Draws smoke puff
     ctx.beginPath();
     ctx.moveTo(chimneyX, chimneyY);
@@ -527,37 +540,41 @@ function drawSmoke2(xOffSet, yOffset) {
     ctx.quadraticCurveTo(chimneyX - 35, chimneyY - 35, chimneyX - 30, chimneyY - 20);
     ctx.quadraticCurveTo(chimneyX - 35, chimneyY + 8, chimneyX, chimneyY);
     ctx.closePath();
-    ctx.fillStyle="rgba(120,120,120,0.8)";
+    ctx.fillStyle = "rgba(120,120,120,0.8)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();
-    ctx.moveTo(chimneyX -10, chimneyY - 26);
-    ctx.quadraticCurveTo(chimneyX -5, chimneyY - 20, chimneyX, chimneyY - 30);
-    ctx.bezierCurveTo(chimneyX - 2, chimneyY - 40, chimneyX - 25, chimneyY - 35, chimneyX-10, chimneyY-26);
+    ctx.moveTo(chimneyX - 10, chimneyY - 26);
+    ctx.quadraticCurveTo(chimneyX - 5, chimneyY - 20, chimneyX, chimneyY - 30);
+    ctx.bezierCurveTo(chimneyX - 2, chimneyY - 40, chimneyX - 25, chimneyY - 35, chimneyX - 10, chimneyY - 26);
     ctx.closePath();
-    ctx.fillStyle="rgba(255,255,255,0.7)";
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
     //If else that..
     if (chimneyX < shapes.width && chimneyY > 0) {
         chimneyX += 3;
-        chimneyY -= 2;
+        chimneyY -= 1;
     }
     else {
         chimneyX = chimLeftBackX;
         chimneyY = chimTopBackY;
     }
-  }
+    ctx.restore();
+}
 
-  function drawSmokeFormation(xOffSet, yOffset) {
-    var smokeNum = Math.floor((Math.random() * 3) + 1);
-    if (smokeNum == 1) {
-      drawSmoke1(xOffSet, yOffset);
-    } else if (smokeNum == 2) {
-      drawSmoke2(xOffSet, yOffset);
-    } else {
-      drawSmoke3(xOffSet, yOffset);
+function drawSmokeFormation(scale) {
+    var scaleX = Math.random() * (1.01 - 0.99) + 0.99;
+    var scaleY = Math.random() * (1.01 - 0.99) + 0.99;
+    if (chimneyX >= smokeLimitX2) {
+        drawSmoke3(scaleX, scaleY);
     }
-  }
+    else if (chimneyX >= smokeLimitX1) {
+        drawSmoke2(scaleX, scaleY);
+    }
+    else {
+        drawSmoke1(scaleX, scaleY);
+    }
+}
 
 function drawHouse() {
     "use strict";
@@ -631,10 +648,14 @@ function drawClouds() {
     else {
         xCloud4 = -100;
     }
-    //var set = setInterval(drawSmoke1, 50);
-    drawSmokeFormation(25, 25);
+    drawSmokeFormation();
 }
 
-function house() {
-    var inter = setInterval(drawClouds, 50);
+function house(speed) {
+    clearInterval(inter);
+    "use strict";
+    shapes = document.getElementById("myShapes");
+    smokeLimitX1 = chimLeftBackX + (shapes.width - chimLeftBackX) / 3;
+    smokeLimitX2 = chimLeftBackX + 2 * (shapes.width - chimLeftBackX) / 3;
+    inter = setInterval(drawClouds, speed);
 }

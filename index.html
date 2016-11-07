@@ -8,9 +8,16 @@
     <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
-<body onLoad="house()">
-    <h1>Red Rectangle, Green Circle, and Stroked Arc</h1>
+<body onLoad="house(150)">
+    <h1>Sergio and Wilson's Log Cabin in the Hills</h1>
     <canvas id="myShapes" width="500" height="500"></canvas>
+    <div>
+        <p>
+            <label for="interval-speed">Animation Speed</label>
+        </p>
+        <p>
+            <input type="range" id="interval-speed" min="1" value="150" max="150" step="1" oninput="house(value)"> </p>
+    </div>
 </body>
 
 </html>
