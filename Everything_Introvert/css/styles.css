@@ -77,7 +77,7 @@ button {
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  position: relative; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
@@ -86,7 +86,7 @@ button {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,.75); /* Black w/ opacity */
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 /* Modal Content/Box */
