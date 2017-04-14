@@ -86,7 +86,6 @@ button {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,.75); /* Black w/ opacity */
-  padding-top: 30px;
 }
 
 /* Modal Content/Box */
