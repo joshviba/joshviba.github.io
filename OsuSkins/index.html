@@ -12,25 +12,18 @@
 <body class="bg container">
 	<div><img class="banner" src="images/banner.png" />
 	</div>
-	<div
 	<div class="profile">
-		<div class="aboutImg">
-		<img src="images/profile.png" />
+		<div class="aboutImg p-3">
+			<img src="images/logo.png" />
 		</div>
-		<p></p>
-		<div>
-			NekoAi
-		</div>
-		<p></p>
-		<div>
+		<div class="mt-3 mb-5 px-4 bio">
 			Some sort of bio/description. Short message of sorts. up to you.
 		</div>
-		<p></p>
 		<div class="socialLinks">
-			<a href=""><button type="button">Twitch</button></a>
-			<a href=""><button type="button">Youtube</button></a>
-			<a href=""><button type="button">Twitter</button></a>
-			<a href=""><button type="button">Discord</button></a>
+			<button class="socialBtn" type="button" onclick="openTwitch()">Twitch</button>
+			<button class="socialBtn" type="button" onclick="openYouTube()">Youtube</button>
+			<button class="socialBtn" type="button" onclick="openTwitter()">Twitter</button>
+			<button class="socialBtn" type="button" onclick="openDiscord()">Discord</button>
 		</div>
 	</div>
 	<div class="mainReel">
@@ -45,20 +38,18 @@
 				<button class="categoryButton">COMMISSIONS</button>
 			</div>
 		</div>
-		<div>
-			<div class="buttonDisplay">
-				<div id="galleryView" class="galleryView">
-					<button class="hoverWaifu"><img class="galleryBtns" src="images/waifu-button.png" /></button>
-					<button class="hoverDX"><img class="galleryBtns" src="images/waifu-button.png" /></button>
-					<button class="hoverComm"><img class="galleryBtns" src="images/waifu-button.png" /></button>
-					<p class="waifuListings">
-						<a href="#">Link 1</a>
-						<a href="#">Link 2</a>
-						<a href="#">Link 3</a>
-					</p>
-				</div>
-			</div>		
-		</div>
+		<div class="buttonDisplay">
+			<div id="galleryView" class="galleryView">
+				<button class="hoverWaifu"><img class="galleryBtns" src="images/waifu-button.png" /></button>
+				<button class="hoverDX"><img class="galleryBtns" src="images/waifu-button.png" /></button>
+				<button class="hoverComm"><img class="galleryBtns" src="images/waifu-button.png" /></button>
+				<p class="waifuListings">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+				</p>
+			</div>
+		</div>		
 	</div>
 </body>
 

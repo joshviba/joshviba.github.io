@@ -6,3 +6,11 @@ function myFunction() {
     x.style.display = "none";
   }
 }
+
+function openTwitch(){
+	window.open('https://twitch.tv/recital','_blank');
+}
+
+function openTwitter(){
+	window.open('https://twitter.com','_blank');
+}
