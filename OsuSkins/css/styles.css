@@ -14,27 +14,52 @@ Author: Josue Villegas
 	width: 100%;
 }
 
+.bio{
+	position: relative;
+	text-align: left;
+	color: var(--lightBlueST);
+}
+
+.socialBtn {
+    border: .25em solid var(--lightBlueST);
+	border-radius: 3em;
+	width: 50%;
+	margin: 3px;
+	color: var(--lightPinkMT);
+	background-color: transparent;
+}
+
 .bg {
 	background-color: var(--darkGreyBG);
 	font-family: "Comfortaa";
+	color: var(--lightPinkMT);
 }
 
 .buttonDisplay{
 	width: 100%;
-	background-color: var(--lightGreyBG);
-	border: 2px solid #000000;
 	height: 90%;
+	border: 1em solid var(--lightGreyBG);
+	border-radius: 3em;
+	text-align: center;
+	position: relative;
+	display: inline-block;
 }
 
 .category{
-	width: 33.33%;
+	width: 29%;
+	margin-left: 1em;
+	margin-right: 1em;
 	float: left;
+	border: .25em solid var(--lightBlueST);
+	border-radius: 3em;
 }
 
 .categoryButton{
 	width: 100%;
 	height: 100%;
 	background-color: transparent;
+	border: none;
+	color: var(--lightPinkMT);
 }
 
 .galleryView{
@@ -45,37 +70,44 @@ Author: Josue Villegas
 
 .headerRow{
 	height: 10%;
-	text-align: center;
 	float: top;
+	margin-bottom: 1em;
 }
 
-.displayRow{
-	height: 90%;
-	border: 20px solid #000000;
-	border-radius: 50px;
-	text-align: center;
-	position: relative;
-	display: inline-block;
-}
 
 .profile{
 	vertical-align: top;
-	border: 2px solid #000000;
+	text-align: center;
+	border: 1em solid var(--lightGreyBG);
+	border-radius: 3em;
 	width: 20%;
 	height: 80%;
+	margin: 1em;
 	float: left;
+	color: var--(lightPinkMT);
+	margin-right: 0px;
+	position: relative;
 }
 
 .mainReel{
-	width: 80%;
-	height: 80%;
+	width: 75%;
+	height: 78%;
 	vertical-align: top;
 	text-align: center;
-	float: left;
+	margin: 1em;
+	margin-left: 0px;
+	float: right;
 }
 
-.aboutImg, .aboutImg img {
+.aboutImg {
 	width: 100%;
+	min-height: 200px;
+	vertical-align: center;
+}
+
+.aboutImg > img {
+	width: 100%;
+	margin-top: 50%;
 }
 
 .galleryTable{
