@@ -10,8 +10,27 @@
   <script src="js/scripts.js" type="text/javascript"></script>
 </head>
 <body class="bg container">
-	<div><img class="banner" src="images/banner.png" />
-	</div>
+  <div id="desktopBanner" class="bannerWrapper">
+	  <img class="banner" src="images/banner.png" />
+  </div>
+  <div id="mobileBanner" class="bannerWrapper">
+    <div class="profileMenu">
+       <a href="index.html"><img class="banner" src="images/banner.png" onclick="window.location='index.html';" /></a>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="profileBurger" onclick="profileBurger()">
+        <img class="profileMenuImg" src="images/profile.png" />
+      </a>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <div class="socialLinks">
+          <button class="socialBtn" type="button" onclick="openTwitch()">Twitch</button>
+          <button class="socialBtn" type="button" onclick="openYouTube()">Youtube</button>
+          <button class="socialBtn" type="button" onclick="openTwitter()">Twitter</button>
+          <button class="socialBtn" type="button" onclick="openDiscord()">Discord</button>
+        </div>
+      </div>
+    </div>
+  </div>
 	<div class="profile">
 		<div class="aboutImg p-3">
 			<img src="images/logo.png" />

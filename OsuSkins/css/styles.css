@@ -10,8 +10,17 @@ Author: Josue Villegas
 	--lightPinkMT : #fca5ff;
 }
 
+#mobileBanner{
+  display: none;
+
+}
+
 .banner{
 	width: 100%;
+}
+
+.bannerWrapper {
+  width:100%;
 }
 
 .bio{
@@ -36,11 +45,19 @@ Author: Josue Villegas
 }
 
 @media only screen and (max-width: 600px) {
+  #mobileBanner {
+    display: initial;
+  }
+  
   .bg{
     background-color: var(--darkGreyBG);
 	font-family: "Comfortaa";
 	color: var(--lightPinkMT);
 	font-size: 6pt;
+  }
+  
+  #desktopBanner {
+    display: none;
   }
 
 .buttonDisplay{
@@ -87,10 +104,66 @@ Author: Josue Villegas
   .headerRow{
     height: 10%;
 	float: top;
-	margin-bottom: 1em;
+	margin-top: 1em;
 width: 100%;
   }
-  }
+  
+  .buttonDisplay{
+	width: 100%;
+	height: 90%;
+	border: 1em solid var(--lightGreyBG);
+	border-radius: 3em;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	float: center;
+	margin-top: 1em;
+}
+
+.categoryButton{
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	color: var(--lightPinkMT);
+}
+
+.profileMenu{
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+.banner{
+	width: 90%;
+}
+
+.profileMenu #myLinks {
+  display: none;
+}
+
+.profileBurger {
+  color: white;
+  text-decoration: none;
+}
+
+.profileMenuImg {
+  width: 10%;
+  float: right;
+}
+
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.profileMenu  a.icon {
+  width: 10%;
+  background: var(--lightGreyBG);
+  display: block;
+} 
+}
 
 
 .profile{
@@ -115,10 +188,10 @@ width: 100%;
 
 .mainReel{
 	width: 75%;
-	height: 78%;
+	height: 80%;
 	vertical-align: top;
 	text-align: center;
-	margin: 1em;
+	margin-right: 1em;
 	margin-left: 0px;
 	float: right;
 }
@@ -126,10 +199,10 @@ width: 100%;
 @media only screen and (max-width: 600px) {
   .mainReel{
    width: 100%;
-   height: 78%;
+   height: 80%;
 	vertical-align: top;
 	text-align: center;
-	margin: 1em;
+	margin: auto;
  }
 }
 

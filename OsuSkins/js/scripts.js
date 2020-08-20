@@ -7,6 +7,15 @@ function myFunction() {
   }
 }
 
+function profileBurger() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+} 
+
 function openTwitch(){
 	window.open('https://twitch.tv/recital','_blank');
 }
