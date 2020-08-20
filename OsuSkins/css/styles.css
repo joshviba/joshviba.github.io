@@ -35,6 +35,14 @@ Author: Josue Villegas
 	color: var(--lightPinkMT);
 }
 
+@media only screen and (max-width: 600px) {
+  .bg{
+    background-color: var(--darkGreyBG);
+	font-family: "Comfortaa";
+	color: var(--lightPinkMT);
+	font-size: 6pt;
+  }
+
 .buttonDisplay{
 	width: 100%;
 	height: 90%;
@@ -43,6 +51,7 @@ Author: Josue Villegas
 	text-align: center;
 	position: relative;
 	display: inline-block;
+	float: center;
 }
 
 .category{
@@ -74,6 +83,15 @@ Author: Josue Villegas
 	margin-bottom: 1em;
 }
 
+@media only screen and (max-width: 600px) {
+  .headerRow{
+    height: 10%;
+	float: top;
+	margin-bottom: 1em;
+width: 100%;
+  }
+  }
+
 
 .profile{
 	vertical-align: top;
@@ -89,6 +107,12 @@ Author: Josue Villegas
 	position: relative;
 }
 
+@media only screen and (max-width: 600px) {.profile{
+    display: none;
+  }
+} 
+
+
 .mainReel{
 	width: 75%;
 	height: 78%;
@@ -97,6 +121,16 @@ Author: Josue Villegas
 	margin: 1em;
 	margin-left: 0px;
 	float: right;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainReel{
+   width: 100%;
+   height: 78%;
+	vertical-align: top;
+	text-align: center;
+	margin: 1em;
+ }
 }
 
 .aboutImg {
@@ -108,13 +142,6 @@ Author: Josue Villegas
 .aboutImg > img {
 	width: 100%;
 	margin-top: 50%;
-}
-
-.galleryTable{
-	width: 95%;
-	height: 95%;
-	border: none;
-	margin: auto;
 }
 
 .bottomAlign{
@@ -148,7 +175,7 @@ Author: Josue Villegas
 .waifuListings {
 	display: none;
 	position: absolute;
-	z-index: 1:
+	z-index: 1;
 }
 
 .waifuListings a {
