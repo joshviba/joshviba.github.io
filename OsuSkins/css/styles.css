@@ -44,22 +44,6 @@ Author: Josue Villegas
 	color: var(--lightPinkMT);
 }
 
-@media only screen and (max-width: 600px) {
-  #mobileBanner {
-    display: initial;
-  }
-  
-  .bg{
-    background-color: var(--darkGreyBG);
-	font-family: "Comfortaa";
-	color: var(--lightPinkMT);
-	font-size: 6pt;
-  }
-  
-  #desktopBanner {
-    display: none;
-  }
-
 .buttonDisplay{
 	width: 100%;
 	height: 90%;
@@ -97,72 +81,85 @@ Author: Josue Villegas
 .headerRow{
 	height: 10%;
 	float: top;
-	margin-bottom: 1em;
+	margin-top: 1em;
 }
 
 @media only screen and (max-width: 600px) {
-  .headerRow{
-    height: 10%;
-	float: top;
-	margin-top: 1em;
-width: 100%;
-  }
+	.headerRow{
+		height: 10%;
+		float: top;
+		margin-top: 1em;
+		width: 100%;
+	}
   
-  .buttonDisplay{
-	width: 100%;
-	height: 90%;
-	border: 1em solid var(--lightGreyBG);
-	border-radius: 3em;
-	text-align: center;
-	position: relative;
-	display: inline-block;
-	float: center;
-	margin-top: 1em;
-}
+	.buttonDisplay{
+		width: 100%;
+		height: 90%;
+		border: 1em solid var(--lightGreyBG);
+		border-radius: 3em;
+		text-align: center;
+		position: relative;
+		display: inline-block;
+		float: center;
+		margin-top: 1em;
+	}
 
-.categoryButton{
-	width: 100%;
-	height: 100%;
-	background-color: transparent;
-	border: none;
-	color: var(--lightPinkMT);
-}
+	.categoryButton{
+		width: 100%;
+		height: 100%;
+		background-color: transparent;
+		border: none;
+		color: var(--lightPinkMT);
+	}
 
-.profileMenu{
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-}
+	.profileMenu{
+		overflow: hidden;
+		background-color: #333;
+		position: relative;
+	}
 
-.banner{
-	width: 90%;
-}
+	.banner{
+		width: 90%;
+	}
 
-.profileMenu #myLinks {
-  display: none;
-}
+	.profileMenu #myLinks {
+		display: none;
+	}
 
-.profileBurger {
-  color: white;
-  text-decoration: none;
-}
+	.profileBurger {
+		color: white;
+		text-decoration: none;
+	}
 
-.profileMenuImg {
-  width: 10%;
-  float: right;
-}
+	.profileMenuImg {
+		width: 10%;
+		float: right;
+	}
 
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
+	.active {
+		background-color: #4CAF50;
+		color: white;
+	}
 
-.profileMenu  a.icon {
-  width: 10%;
-  background: var(--lightGreyBG);
-  display: block;
-} 
+	.profileMenu  a.icon {
+		width: 10%;
+		background: var(--lightGreyBG);
+		display: block;
+	}
+	
+	.profile{
+		display: none;
+	}
+	
+	.mainReel{
+		width: 100%;
+		height: 80%;
+		vertical-align: top;
+		text-align: center;
+		margin: auto;
+		margin: auto;
+	}
 }
 
 
@@ -180,12 +177,6 @@ width: 100%;
 	position: relative;
 }
 
-@media only screen and (max-width: 600px) {.profile{
-    display: none;
-  }
-} 
-
-
 .mainReel{
 	width: 75%;
 	height: 80%;
@@ -196,15 +187,6 @@ width: 100%;
 	float: right;
 }
 
-@media only screen and (max-width: 600px) {
-  .mainReel{
-   width: 100%;
-   height: 80%;
-	vertical-align: top;
-	text-align: center;
-	margin: auto;
- }
-}
 
 .aboutImg {
 	width: 100%;
