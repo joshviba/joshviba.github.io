@@ -12,7 +12,6 @@ Author: Josue Villegas
 
 #mobileBanner{
   display: none;
-
 }
 
 .banner{
@@ -52,7 +51,6 @@ Author: Josue Villegas
 	text-align: center;
 	position: relative;
 	display: inline-block;
-	float: center;
 }
 
 .category{
@@ -64,9 +62,8 @@ Author: Josue Villegas
 	border-radius: 3em;
 }
 
-.categoryButton{
+.headerButton{
 	width: 100%;
-	height: 100%;
 	background-color: transparent;
 	border: none;
 	color: var(--lightPinkMT);
@@ -84,7 +81,108 @@ Author: Josue Villegas
 	margin-top: 1em;
 }
 
+.mainReel{
+	width: 75%;
+	height: 80%;
+	vertical-align: top;
+	text-align: center;
+	margin-right: 1em;
+	margin-left: 0px;
+	float: right;
+}
+
+.profile{
+	vertical-align: top;
+	text-align: center;
+	border: 1em solid var(--lightGreyBG);
+	border-radius: 3em;
+	width: 20%;
+	height: 80%;
+	margin: 1em;
+	float: left;
+	color: var--(lightPinkMT);
+	margin-right: 0px;
+	position: relative;
+}
+
+.aboutImg {
+	width: 100%;
+	min-height: 200px;
+	vertical-align: center;
+}
+
+.aboutImg > img {
+	width: 100%;
+	margin-top: 50%;
+}
+
+.bottomAlign{
+	vertical-align: center;
+	text-align: center;
+}
+
+
+.categoryButton{
+	width: 100%;
+	background-color: transparent;
+	border: 0px;
+}
+
+.hoverDX{
+	width: 30%;
+	background-color: transparent;
+	border: 0px;
+}
+
+.hoverComm{
+	width: 30%;
+	background-color: transparent;
+	border: 0px;
+}
+
+/* styling for category button image */
+.categoryImage{
+	width: 100%;
+}
+
+.waifuListings {
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+
+.waifuListings a {
+	display: block;
+}
+
+.categoryButton:hover .waifuListings {display:block;}
+
+/* styling for small portrait devices */
 @media only screen and (max-width: 600px) {
+  #desktopBanner{
+    display: none;
+  }
+  
+  #mobileBanner {
+    display: initial;
+  }
+  
+  .socialBtn {
+    border: .25em solid var(--lightPinkMT);
+  	border-radius: 3em;
+  	width: 20%;
+  	margin: 3px;
+  	color: var(--lightBlueST);
+  	background-color: transparent;
+  }
+  
+  .bg {
+	  background-color: var(--darkGreyBG);
+	  font-family: "Comfortaa";
+	  color: var(--lightPinkMT);
+	  font-size: 6pt 
+  }
+  
 	.headerRow{
 		height: 10%;
 		float: top;
@@ -100,11 +198,10 @@ Author: Josue Villegas
 		text-align: center;
 		position: relative;
 		display: inline-block;
-		float: center;
 		margin-top: 1em;
 	}
 
-	.categoryButton{
+	.headerButton{
 		width: 100%;
 		height: 100%;
 		background-color: transparent;
@@ -145,7 +242,7 @@ Author: Josue Villegas
 	.profileMenu  a.icon {
 		width: 10%;
 		background: var(--lightGreyBG);
-		display: block;
+		display: inline-block;
 	}
 	
 	.profile{
@@ -161,80 +258,3 @@ Author: Josue Villegas
 		margin: auto;
 	}
 }
-
-
-.profile{
-	vertical-align: top;
-	text-align: center;
-	border: 1em solid var(--lightGreyBG);
-	border-radius: 3em;
-	width: 20%;
-	height: 80%;
-	margin: 1em;
-	float: left;
-	color: var--(lightPinkMT);
-	margin-right: 0px;
-	position: relative;
-}
-
-.mainReel{
-	width: 75%;
-	height: 80%;
-	vertical-align: top;
-	text-align: center;
-	margin-right: 1em;
-	margin-left: 0px;
-	float: right;
-}
-
-
-.aboutImg {
-	width: 100%;
-	min-height: 200px;
-	vertical-align: center;
-}
-
-.aboutImg > img {
-	width: 100%;
-	margin-top: 50%;
-}
-
-.bottomAlign{
-	vertical-align: center;
-	text-align: center;
-}
-
-
-.hoverWaifu{
-	width: 30%;
-	background-color: transparent;
-	border: 0px;
-}
-
-.hoverDX{
-	width: 30%;
-	background-color: transparent;
-	border: 0px;
-}
-
-.hoverComm{
-	width: 30%;
-	background-color: transparent;
-	border: 0px;
-}
-
-.galleryBtns {
-	width: 100%;
-}
-
-.waifuListings {
-	display: none;
-	position: absolute;
-	z-index: 1;
-}
-
-.waifuListings a {
-	display: block;
-}
-
-.hoverWaifu:hover .waifuListings {display:block;}

@@ -16,16 +16,14 @@
 		   <a href="index.html"><img class="banner" src="images/banner.png" onclick="window.location='index.html';" /></a>
 		  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
 		  <a href="javascript:void(0);" class="profileBurger" onclick="profileBurger()">
-			<img class="profileMenuImg" src="images/profile.png" />
+			  <img class="profileMenuImg" src="images/mobileLogo.png" />
 		  </a>
 		  <!-- Navigation links (hidden by default) -->
-		  <div id="myLinks">
-			<div class="socialLinks">
+		  <div id="myLinks" class="socialLinks">
 			  <button class="socialBtn" type="button" onclick="openTwitch()">Twitch</button>
 			  <button class="socialBtn" type="button" onclick="openYouTube()">Youtube</button>
 			  <button class="socialBtn" type="button" onclick="openTwitter()">Twitter</button>
 			  <button class="socialBtn" type="button" onclick="openDiscord()">Discord</button>
-			</div>
 		  </div>
 		</div>
 	</div>
@@ -51,25 +49,25 @@
 	<div class="mainReel">
 		<div class="headerRow">
 			<div class="category">
-				<button class="categoryButton">UPDATES</button>
+				<button class="headerButton">UPDATES</button>
 			</div>
 			<div class="category">
-				<button class="categoryButton" onclick="myFunction()">GALLERY</button>
+				<button class="headerButton" onclick="myFunction()">GALLERY</button>
 			</div>
 			<div class="category">
-				<button class="categoryButton">COMMISSIONS</button>
+				<button class="headerButton">COMMISSIONS</button>
 			</div>
 		</div>
 		<div class="buttonDisplay">
 			<div id="galleryView" class="galleryView">
-				<button class="hoverWaifu"><img class="galleryBtns" src="images/waifu-button.png" /></button>
-				<button class="hoverDX"><img class="galleryBtns" src="images/waifu-button.png" /></button>
-				<button class="hoverComm"><img class="galleryBtns" src="images/waifu-button.png" /></button>
-				<p class="waifuListings">
-					<a href="#">Link 1</a>
-					<a href="#">Link 2</a>
-					<a href="#">Link 3</a>
-				</p>
+			  <div class="category">
+  				<button class="categoryButton"><img class="categotyImage" src="images/waifu-button.png" onclick="toggleWaifus() "/></button>
+  				<div id="waifus" class="waifuListings">
+  					<a href="#">Link 1</a>
+  					<a href="#">Link 2</a>
+  					<a href="#">Link 3</a>
+  				</div>
+  			</div>
 			</div>
 		</div>		
 	</div>

@@ -1,9 +1,9 @@
 function myFunction() {
   var x = document.getElementById("galleryView");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+  if (x.style.display === "block") {
     x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
 }
 
@@ -21,5 +21,22 @@ function openTwitch(){
 }
 
 function openTwitter(){
-	window.open('https://twitter.com','_blank');
+	window.open('https://twitter.com/','_blank');
+}
+
+function openYouTube(){
+	window.open('https://youtube.com/','_blank');
+}
+
+function openDiscord(){
+	window.open('https://discord.com','_blank');
+}
+
+function toggleWaifus(){
+  var x = document.getElementById("waifus");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
 }
