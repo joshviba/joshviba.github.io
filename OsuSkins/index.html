@@ -48,26 +48,45 @@
 	</div>
 	<div class="mainReel">
 		<div class="headerRow">
-			<div class="category">
+			<div class="header">
 				<button class="headerButton">UPDATES</button>
 			</div>
-			<div class="category">
-				<button class="headerButton" onclick="myFunction()">GALLERY</button>
+			<div class="header">
+				<button class="headerButton" onclick="showGallery()">GALLERY</button>
 			</div>
-			<div class="category">
+			<div class="header">
 				<button class="headerButton">COMMISSIONS</button>
 			</div>
 		</div>
 		<div class="buttonDisplay">
 			<div id="galleryView" class="galleryView">
-			  <div class="category">
-  				<button class="categoryButton"><img class="categotyImage" src="images/waifu-button.png" onclick="toggleWaifus() "/></button>
-  				<div id="waifus" class="waifuListings">
-  					<a href="#">Link 1</a>
-  					<a href="#">Link 2</a>
-  					<a href="#">Link 3</a>
-  				</div>
-  			</div>
+				<div class="category">
+					<div class="hoverContainer">
+						<img class="categoryImage" src="images/waifu-button.png" />
+						<img class="categoryImageMobile" onclick="toggleWaifus()" src="images/waifu-button.png" />
+						<div id="waifus" class="waifuListings">
+							<div class="listing"><a href="#"> Waifu </a><a href="#">[Download]</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="category">
+					<div class="hoverContainer">
+						<img class="categoryImage" src="images/waifu-button.png" />
+						<img class="categoryImageMobile" onclick="toggleWaifus()" src="images/waifu-button.png" />
+						<div id="waifus" class="waifuListings">
+							<div class="listing"><a href="#"> Waifu </a><a href="#">[Download]</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="category">
+					<div class="hoverContainer">
+						<img class="categoryImage" src="images/waifu-button.png" />
+						<img class="categoryImageMobile" onclick="toggleWaifus()" src="images/waifu-button.png" />
+						<div id="waifus" class="waifuListings">
+							<div class="listing"><a href="#"> Waifu </a><a href="#">[Download]</a></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>		
 	</div>

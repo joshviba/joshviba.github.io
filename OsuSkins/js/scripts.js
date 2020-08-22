@@ -1,4 +1,4 @@
-function myFunction() {
+function showGallery() {
   var x = document.getElementById("galleryView");
   if (x.style.display === "block") {
     x.style.display = "none";

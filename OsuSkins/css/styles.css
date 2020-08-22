@@ -35,6 +35,7 @@ Author: Josue Villegas
 	margin: 3px;
 	color: var(--lightPinkMT);
 	background-color: transparent;
+	vertical-align: middle;
 }
 
 .bg {
@@ -53,17 +54,25 @@ Author: Josue Villegas
 	display: inline-block;
 }
 
-.category{
+.header{
 	width: 29%;
 	margin-left: 1em;
 	margin-right: 1em;
 	float: left;
 	border: .25em solid var(--lightBlueST);
 	border-radius: 3em;
+	vertical-align: middle;
+}
+
+.category{
+	width: 33.33%;
+	float: left;
+	vertical-align: middle;
 }
 
 .headerButton{
 	width: 100%;
+	height: 100%;
 	background-color: transparent;
 	border: none;
 	color: var(--lightPinkMT);
@@ -71,14 +80,13 @@ Author: Josue Villegas
 
 .galleryView{
 	display: none;
-	position: absolute;
-	z-index: 1;
 }
 
 .headerRow{
-	height: 10%;
+	height: 8%;
 	float: top;
 	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .mainReel{
@@ -126,6 +134,7 @@ Author: Josue Villegas
 	width: 100%;
 	background-color: transparent;
 	border: 0px;
+	vertical-align: middle;
 }
 
 .hoverDX{
@@ -143,22 +152,39 @@ Author: Josue Villegas
 /* styling for category button image */
 .categoryImage{
 	width: 100%;
+	margin: auto;
+	background-color: transparent;
+	border: 0px;
+	vertical-align: middle;
+}
+
+.categoryImageMobile{
+	display: none;
 }
 
 .waifuListings {
 	display: none;
-	position: absolute;
-	z-index: 1;
 }
 
-.waifuListings a {
+.listing {
 	display: block;
 }
 
-.categoryButton:hover .waifuListings {display:block;}
+.hoverContainer {padding-top: .5em; padding-bottom: .5em;}
 
-/* styling for small portrait devices */
-@media only screen and (max-width: 600px) {
+.hoverContainer:hover .waifuListings {display:block;}
+
+@media only screen and (max-width: 1200px) {
+	.bg {
+	  background-color: var(--darkGreyBG);
+	  font-family: "Comfortaa";
+	  color: var(--lightPinkMT);
+	  font-size: 9pt 
+  }
+}
+
+/* styling for medium portrait devices */
+@media only screen and (max-width: 992px) {
   #desktopBanner{
     display: none;
   }
@@ -180,11 +206,11 @@ Author: Josue Villegas
 	  background-color: var(--darkGreyBG);
 	  font-family: "Comfortaa";
 	  color: var(--lightPinkMT);
-	  font-size: 6pt 
+	  font-size: 9pt 
   }
   
 	.headerRow{
-		height: 10%;
+		height: 5%;
 		float: top;
 		margin-top: 1em;
 		width: 100%;
@@ -255,6 +281,27 @@ Author: Josue Villegas
 		vertical-align: top;
 		text-align: center;
 		margin: auto;
-		margin: auto;
 	}
+	
+	.categoryImage{
+		display: none;
+	}
+	
+	.categoryImageMobile{
+		width: 90%;
+		margin: auto;
+		background-color: transparent;
+		border: 0px;
+		vertical-align: middle;
+		display: initial;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	.bg {
+	  background-color: var(--darkGreyBG);
+	  font-family: "Comfortaa";
+	  color: var(--lightPinkMT);
+	  font-size: 6pt 
+  }
 }
