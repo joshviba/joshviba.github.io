@@ -12,24 +12,28 @@
 </head>
 <body class="bg container">
 	<!-- Contains the banner seen on mobile devices <= 600px wide -->
-	<div id="mobileBanner" class="bannerWrapper">
-		<div class="profileMenu">
-		   <a href="index.html"><img class="banner" src="images/banner.png" onclick="window.location='index.html';" /></a>
-		  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-		  <a href="javascript:void(0);" class="profileBurger" onclick="profileBurger()">
-			  <img class="profileMenuImg" src="images/mobileLogo.png" />
-		  </a>
-		  <!-- Navigation links (hidden by default) -->
-		  <div id="myLinks" class="socialLinks">
+	<div id="mobileBanner" class="banner">
+	  <div id="myLinks" class="socialLinks">
 			  <button class="socialBtn" type="button" onclick="openTwitch()">Twitch</button>
 			  <button class="socialBtn" type="button" onclick="openYouTube()">Youtube</button>
 			  <button class="socialBtn" type="button" onclick="openTwitter()">Twitter</button>
 			  <button class="socialBtn" type="button" onclick="openDiscord()">Discord</button>
+		  </div> 
+	 
+		  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+		  <div class="burgerMenuContainer" onclick="burgerMenu(this)">
+		    <div class="bar1"></div>
+		    <div class="bar2"></div>
+		    <div class="bar3"></div>
 		  </div>
-		</div>
+		  
+		  <!-- <a href="javascript:void(0);" class="profileBurger" onclick="profileBurger()">
+			  <img class="profileMenuImg" src="images/mobileLogo.png" />
+		  </a> -->
+				  <!-- Navigation links (hidden by default) -->
 	</div>
 	
-	<div id="desktopBanner" class="bannerWrapper">
+	<div id="desktopBanner" class="banner">
 	  <img class="banner" src="images/banner.png" />
 	</div>
 	

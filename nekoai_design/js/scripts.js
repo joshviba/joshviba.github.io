@@ -7,12 +7,13 @@ function showGallery() {
   }
 }
 
-function profileBurger() {
+function burgerMenu(inVar) {
+    inVar.classList.toggle("change"); 
   var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
+  if (x.style.display === "inline") {
     x.style.display = "none";
   } else {
-    x.style.display = "block";
+    x.style.display = "inline";
   }
 } 
 

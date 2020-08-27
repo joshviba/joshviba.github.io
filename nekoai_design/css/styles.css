@@ -16,10 +16,17 @@ Author: Josue Villegas
 
 .banner{
 	width: 100%;
+	text-align: center;
 }
 
 .bannerWrapper {
-  width:100%;
+  width: 100%;
+  text-align: center;
+}
+
+.socialLinks {
+  width: 85%;
+  float:left;
 }
 
 .bio{
@@ -190,8 +197,38 @@ Author: Josue Villegas
   }
   
   #mobileBanner {
-    display: initial;
+    display: inline;
   }
+  
+ .burgerMenuContainer {
+   cursor: pointer;
+   width: 47px;
+   float: right;
+ }
+ 
+ .change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+  background-color: var(--lightBlueST);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+  background-color: var(--lightBlueST);
+}
+ 
+ 
+.bar1, .bar2, .bar3 {
+  height: 5px;
+  width: 35px;
+  background-color: var(--lightPinkMT);
+  margin: 6px;
+  margin-right: 0;
+  transition: 0.4s;
+}
   
   .socialBtn {
     border: .25em solid var(--lightPinkMT);
@@ -206,7 +243,7 @@ Author: Josue Villegas
 	  background-color: var(--darkGreyBG);
 	  font-family: "Comfortaa";
 	  color: var(--lightPinkMT);
-	  font-size: 9pt 
+	  font-size: 9pt;
   }
   
 	.headerRow{
@@ -245,7 +282,7 @@ Author: Josue Villegas
 		width: 90%;
 	}
 
-	.profileMenu #myLinks {
+	#myLinks {
 		display: none;
 	}
 
