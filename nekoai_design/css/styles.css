@@ -197,33 +197,49 @@ Author: Josue Villegas
   }
   
   #mobileBanner {
-    display: inline;
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
+  
+ .bannerImage {
+   position: relative;
+   margin-left: 1em;
+   z-index: 0;
+   height: 65px;
+ }
   
  .burgerMenuContainer {
    cursor: pointer;
-   width: 47px;
-   float: right;
+   width: 75px;
+   height: 65px;
+   top: 0;
+   right: 5;
+   position: absolute;
+   z-index: 1;
+   margin: 2em;
  }
  
  .change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
+  -webkit-transform: rotate(-45deg) translate(-13px, 12px);
+  transform: rotate(-45deg) translate(-13px, 12px);
   background-color: var(--lightBlueST);
 }
 
 .change .bar2 {opacity: 0;}
+.change .bar3 {opacity: 0;}
 
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
+.change .bar4 {
+  -webkit-transform: rotate(45deg) translate(-10px, -11px);
+  transform: rotate(45deg) translate(-10px, -11px);
   background-color: var(--lightBlueST);
 }
  
  
-.bar1, .bar2, .bar3 {
+.bar1, .bar2, .bar3, .bar4 {
   height: 5px;
-  width: 35px;
+  width: 40px;
   background-color: var(--lightPinkMT);
   margin: 6px;
   margin-right: 0;
@@ -233,10 +249,11 @@ Author: Josue Villegas
   .socialBtn {
     border: .25em solid var(--lightPinkMT);
   	border-radius: 3em;
-  	width: 20%;
-  	margin: 3px;
+  	width: 15%;
+  	margin: 1em;
+  	height: 50px;
+  	float: left;
   	color: var(--lightBlueST);
-  	background-color: transparent;
   }
   
   .bg {
@@ -281,6 +298,18 @@ Author: Josue Villegas
 	.banner{
 		width: 90%;
 	}
+	
+	.socialLinks {
+	  width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 65px;
+    vertical-align: middle;
+    margin-top: 1em;
+    background-color: var(--lightGreyBG);
+  }
 
 	#myLinks {
 		display: none;
